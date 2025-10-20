@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A* Pathfinding Animation</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <style>
+        body { font-family: sans-serif; margin: 0; background-color: #111; color: #fff; display: flex; }
+        #map { height: 100vh; width: 80%; }
+        .sidebar { width: 20%; padding: 20px; box-sizing: border-box; background-color: #222; }
+        select, button { width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 5px; border: none; }
+        button { background-color: #007bff; color: white; cursor: pointer; }
+        button:disabled { background-color: #555; }
+        #status { font-size: 0.9em; color: #aaa; }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Pathfinding Controls</h2>
+        <label for="start-loc">Start Location</label>
+        <select id="start-loc">
+            <option value="12.9716,79.1557">VIT University</option>
+            <option value="12.9190,79.1325">Vellore Fort</option>
+            <option value="12.9234,79.1357">CMC Hospital</option>
+        </select>
+
+        <label for="end-loc">End Location</label>
+        <select id="end-loc">
+            <option value="12.9190,79.1325">Vellore Fort</option>
+            <option value="12.9716,79.1557">VIT University</option>
+            <option value="12.9234,79.1357">CMC Hospital</option>
+        </select>
+        
+        <button id="find-path-btn">Find Path</button>
+        <p id="status">Select locations and find a path.</p>
+    </div>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="/static/script.js"></script>
+</body>
+</html>

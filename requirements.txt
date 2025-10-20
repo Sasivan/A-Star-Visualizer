@@ -1,9 +1,0 @@
-# requirements.txt
-python3.11 -m venv venv
-osmnx
-networkx
-pandas
-geopy
-streamlit
-python-dotenv
-scikit-learn
