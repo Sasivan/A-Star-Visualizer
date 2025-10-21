@@ -1,9 +1,5 @@
-# requirements.txt
-python3.11 -m venv venv
+Flask
 osmnx
 networkx
-pandas
-geopy
-streamlit
-python-dotenv
+gunicorn
 scikit-learn
