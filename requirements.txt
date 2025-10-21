@@ -1,0 +1,5 @@
+Flask
+osmnx
+networkx
+gunicorn
+scikit-learn

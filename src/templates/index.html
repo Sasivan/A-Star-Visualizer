@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vellore Pathfinding</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div id="app-container">
+        <div class="sidebar">
+            <h2>Visualization</h2>
+
+            <details class="collapsible-section">
+                <summary>Default</summary>
+                <div class="collapsible-content">
+                    <label for="default-start-loc">Default Start</label>
+                    <select id="default-start-loc">
+                        <option value="12.9716,79.1557">VIT University</option>
+                        <option value="12.9190,79.1325">Vellore Fort</option>
+                        <option value="12.9234,79.1357">CMC Hospital</option>
+                        <option value="12.8711,79.0620">Golden Temple</option>
+                        <option value="12.9294,79.1384">Vellore Bus Stand</option>
+                    </select>
+
+                    <label for="default-end-loc">Default End</label>
+                    <select id="default-end-loc">
+                        <option value="12.9190,79.1325">Vellore Fort</option>
+                        <option value="12.9716,79.1557">VIT University</option>
+                        <option value="12.9234,79.1357">CMC Hospital</option>
+                        <option value="12.8711,79.0620">Golden Temple</option>
+                        <option value="12.9294,79.1384">Vellore Bus Stand</option>
+                    </select>
+                    <button id="set-defaults-btn">Set Default Route</button>
+                </div>
+            </details>
+            
+            <div class="control-group">
+                <label for="algorithm-select-left">Left Map / Single View Algorithm</label>
+                <select id="algorithm-select-left">
+                    <option value="astar" selected>A* Search</option>
+                    <option value="dijkstra">Dijkstra's Algorithm</option>
+                    <option value="greedy_bfs">Greedy Best-First Search</option>
+                    <option value="bfs">Breadth-First Search (BFS)</option>
+                    <option value="dfs">Depth-First Search (DFS)</option>
+                </select>
+            </div>
+            
+            <div class="control-group" id="right-algo-group" style="display: none;">
+                 <label for="algorithm-select-right">Right Map Algorithm</label>
+                <select id="algorithm-select-right">
+                    <option value="astar">A* Search</option>
+                    <option value="dijkstra" selected>Dijkstra's Algorithm</option>
+                </select>
+            </div>
+            
+            <div class="button-group">
+                <button id="find-path-btn">Find Path</button>
+                <button id="compare-btn">Compare</button>
+            </div>
+            <button id="reset-btn">Reset Map</button>
+
+            <hr>
+            <label for="animation-speed">Animation Speed:</label>
+            <input type="range" id="animation-speed" min="1" max="200" value="100">
+            <span id="speed-value">100x</span>
+            
+            <p id="status">Click "Compare" or click on the map to begin.</p>
+        </div>
+
+        <div id="map-container">
+            <button id="sidebar-toggle-btn">«</button>
+            <div id="map-left" class="map-view"></div>
+            <div id="map-right" class="map-view" style="display: none;"></div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-sync/L.Map.Sync.js"></script>
+    <script src="/static/script.js"></script>
+</body>
+</html>

@@ -1,20 +1,26 @@
 import osmnx as ox
 import os
 
-# Define the place to download
-place_name = "Vellore, India"
-filepath = "data/vellore_map.graphml"
+# --- Configuration ---
+# The location you want to map.
+PLACE_NAME = "Vellore, India"
+# The file path where the map data will be saved.
+FILEPATH = "data/vellore_map.graphml"
 
-# Create the 'data' directory if it doesn't exist
-os.makedirs(os.path.dirname(filepath), exist_ok=True)
+# --- Main Script ---
+# Ensure the 'data' directory exists before trying to save a file in it.
+os.makedirs(os.path.dirname(FILEPATH), exist_ok=True)
 
-print(f"Downloading map data for '{place_name}'...")
+print(f"Downloading map data for '{PLACE_NAME}'... (This may take a moment)")
 
-# Download the graph for the specified place
-G = ox.graph_from_place(place_name, network_type='drive')
+# This is the core function from OSMnx. It connects to the OpenStreetMap API,
+# downloads the road network data for the specified place, and builds a graph.
+# 'network_type="drive"' gets the roads suitable for driving.
+G = ox.graph_from_place(PLACE_NAME, network_type='drive')
 
-# Save the graph to the file
-ox.save_graphml(G, filepath=filepath)
+# Save the graph object to a file. GraphML is a standard format for storing
+# graph data, preserving all the node coordinates, edges, and metadata.
+ox.save_graphml(G, filepath=FILEPATH)
 
-print(f"✅ Graph saved successfully to '{filepath}'")
-print(f"Nodes: {G.number_of_nodes()}, Edges: {G.number_of_edges()}")
+print(f"✅ Graph saved successfully to '{FILEPATH}'")
+print(f"   Nodes: {G.number_of_nodes()}, Edges: {G.number_of_edges()}")
