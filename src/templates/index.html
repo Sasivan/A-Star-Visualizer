@@ -8,50 +8,127 @@
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
+    
     <div id="app-container">
         <div class="sidebar">
             <h2>Visualization</h2>
+            <div class="control-group">
+                <label>From:</label>
+                <input id="search-from" type="text" placeholder="Search start location..." autocomplete="off">
+                <div id="suggestions-from" class="suggestions"></div>
+
+                <label>To:</label>
+                <input id="search-to" type="text" placeholder="Search end location..." autocomplete="off">
+                <div id="suggestions-to" class="suggestions"></div>
+                <button id="set-points-btn" style="margin-top:10px;background:#17a2b8;">Set Points</button>
+            </div>
+            
+            <hr class="soft-hr">
+
+            
 
             <details class="collapsible-section">
                 <summary>Default</summary>
                 <div class="collapsible-content">
                     <label for="default-start-loc">Default Start</label>
                     <select id="default-start-loc">
-                        <option value="12.9716,79.1557">VIT University</option>
-                        <option value="12.9190,79.1325">Vellore Fort</option>
-                        <option value="12.9234,79.1357">CMC Hospital</option>
-                        <option value="12.8711,79.0620">Golden Temple</option>
-                        <option value="12.9294,79.1384">Vellore Bus Stand</option>
+
+                        <!-- MH Blocks -->
+                        <option value="12.9729,79.1594">A Block [MH]</option>
+                        <option value="12.9719,79.1596">B Block [MH]</option>
+                        <option value="12.9716,79.1598">C Block [MH]</option>
+                        <option value="12.9713,79.1600">D Block [MH]</option>
+                        <option value="12.9710,79.1603">E Block [MH]</option>
+                        <option value="12.9707,79.1606">F Block [MH]</option>
+                        <option value="12.9733,79.1606">G Block [MH]</option>
+                        <option value="12.9725,79.1613">H Block [MH]</option>
+                        <option value="12.9729,79.1618">J Block [MH]</option>
+                        <option value="12.9734,79.1621">K Block [MH]</option>
+                        <option value="12.9738,79.1624">L Block [MH]</option>
+                        <option value="12.9749,79.1603">M Block [MH]</option>
+                        <option value="12.9753,79.1610">N Block [MH]</option>
+                        <option value="12.9758,79.1607">P Block [MH]</option>
+                        <option value="12.9743,79.1612">Q Block [MH]</option>
+                        <option value="12.9762,79.1603">R Block [MH]</option>
+                        <option value="12.9766,79.1599">S Block [MH]</option>
+                        <option value="12.9770,79.1595">T Block [MH]</option>
+
+                        <!-- LH Blocks -->
+                        <option value="12.9692,79.1534">A Block [LH]</option>
+                        <option value="12.9688,79.1533">B Block [LH]</option>
+                        <option value="12.9684,79.1532">C Block [LH]</option>
+                        <option value="12.9680,79.1531">D Block [LH]</option>
+                        <option value="12.9677,79.1529">E Block [LH]</option>
+                        <option value="12.9674,79.1527">F Block [LH]</option>
+                        <option value="12.9670,79.1525">G Block [LH]</option>
+                        <option value="12.9666,79.1523">H Block [LH]</option>
+                        <option value="12.9662,79.1521">J Block [LH]</option>
+
+                        <!-- Academic & Landmarks -->
+                        <option value="12.9694,79.1559">SJT (Silver Jubilee Tower)</option>
+                        <option value="12.9737,79.1622">PRP (Pearl Research Park)</option>
+                        <option value="12.9702,79.1578">MGR (Main Building)</option>
+                        <option value="12.9714,79.1574">SMV</option>
+                        <option value="12.9710,79.1578">CDN</option>
+                        <option value="12.9704,79.1557">TT (Technology Tower)</option>
+                        <option value="12.9698,79.1570">MGB (Gandhi Block)</option>
+                        <option value="12.9706,79.1576">Greenos</option>
+                        <option value="12.9701,79.1593">Foodies</option>
+                        <option value="12.9691,79.1583">Anna Auditorium</option>
+                        <option value="12.9698,79.1565">CS Hall</option>
                     </select>
 
                     <label for="default-end-loc">Default End</label>
                     <select id="default-end-loc">
-                        <option value="12.9190,79.1325">Vellore Fort</option>
-                        <option value="12.9716,79.1557">VIT University</option>
-                        <option value="12.9234,79.1357">CMC Hospital</option>
-                        <option value="12.8711,79.0620">Golden Temple</option>
-                        <option value="12.9294,79.1384">Vellore Bus Stand</option>
+                        <option value="12.9694,79.1559">SJT (Silver Jubilee Tower)</option>
+                        <option value="12.9729,79.1594">A Block [MH]</option>
+                        <option value="12.9719,79.1596">B Block [MH]</option>
+                        <option value="12.9716,79.1598">C Block [MH]</option>
+                        <option value="12.9713,79.1600">D Block [MH]</option>
+                        <option value="12.9710,79.1603">E Block [MH]</option>
+                        <option value="12.9707,79.1606">F Block [MH]</option>
+                        <option value="12.9733,79.1606">G Block [MH]</option>
+                        <option value="12.9725,79.1613">H Block [MH]</option>
+                        <option value="12.9729,79.1618">J Block [MH]</option>
+                        <option value="12.9734,79.1621">K Block [MH]</option>
+                        <option value="12.9738,79.1624">L Block [MH]</option>
+                        <option value="12.9749,79.1603">M Block [MH]</option>
+                        <option value="12.9753,79.1610">N Block [MH]</option>
+                        <option value="12.9758,79.1607">P Block [MH]</option>
+                        <option value="12.9743,79.1612">Q Block [MH]</option>
+                        <option value="12.9762,79.1603">R Block [MH]</option>
+                        <option value="12.9766,79.1599">S Block [MH]</option>
+                        <option value="12.9770,79.1595">T Block [MH]</option>
+
+                        <option value="12.9737,79.1622">PRP</option>
+                        <option value="12.9702,79.1578">MGR</option>
+                        <option value="12.9714,79.1574">SMV</option>
+                        <option value="12.9710,79.1578">CDN</option>
+                        <option value="12.9704,79.1557">TT</option>
+                        <option value="12.9698,79.1570">MGB</option>
+                        <option value="12.9706,79.1576">Greenos</option>
+                        <option value="12.9701,79.1593">Foodies</option>
                     </select>
                     <button id="set-defaults-btn">Set Default Route</button>
                 </div>
             </details>
             
             <div class="control-group">
-                <label for="algorithm-select-left">Left Map / Single View Algorithm</label>
+                <label for="algorithm-select-left">Algorithm (Left Map)</label>
                 <select id="algorithm-select-left">
                     <option value="astar" selected>A* Search</option>
-                    <option value="dijkstra">Dijkstra's Algorithm</option>
-                    <option value="greedy_bfs">Greedy Best-First Search</option>
-                    <option value="bfs">Breadth-First Search (BFS)</option>
-                    <option value="dfs">Depth-First Search (DFS)</option>
+                    <option value="dijkstra">Dijkstra</option>
+                    <option value="greedy_bfs">Greedy Best-First</option>
+                    <option value="bfs">BFS</option>
+                    <option value="dfs">DFS</option>
                 </select>
             </div>
             
             <div class="control-group" id="right-algo-group" style="display: none;">
-                 <label for="algorithm-select-right">Right Map Algorithm</label>
+                <label for="algorithm-select-right">Right Map Algorithm</label>
                 <select id="algorithm-select-right">
                     <option value="astar">A* Search</option>
-                    <option value="dijkstra" selected>Dijkstra's Algorithm</option>
+                    <option value="dijkstra" selected>Dijkstra</option>
                 </select>
             </div>
             
@@ -66,7 +143,7 @@
             <input type="range" id="animation-speed" min="1" max="200" value="100">
             <span id="speed-value">100x</span>
             
-            <p id="status">Click "Compare" or click on the map to begin.</p>
+            <p id="status">Click "Set Points" or click on the map to begin.</p>
         </div>
 
         <div id="map-container">
